@@ -152,14 +152,14 @@ int main()
     out_stream << "one number = "
                << one_number
                << "another number = "
-               << another_number;  
+               << another_number;
     ```
 
 ## SIMPLE FILE INPUT/OUTPUT
 ```cpp
 // reads three numbers from the file infile.dat,
 // sums the nubmers, and writes the sums to the file
-// outfile.dat (a better version of this program will be given 
+// outfile.dat (a better version of this program will be given
 // in Display 5.2.)
 
 #include <fstream>
@@ -182,7 +182,7 @@ int main()
     in_stream.close();
     out_stream.close();
 
-    return 0; 
+    return 0;
 }
 ```
 
@@ -329,7 +329,74 @@ cout << "You have entered: " << n << '\n';
 
 
 ## `STRING` CONSTRUCTORS
-- The default `string` constructor initializes the `string` to the empty string
+- The default `string` **constructor** initializes the `string` to the empty string
 - Another `string` constructor takes a C-string argument
-- **example**:
+    - **example**:
+    ```cpp
+    string parse; // empty string
+    string noun("ants"); // a string version of "ants"
+    ```
+
+## MIXING `STRING`s AND C-STRINGS
+- it is natural to work with strings in the following manner
+```cpp
+string phrase = "I love" + adjective + " " + noun + "!";
+```
+> it is not so easy for C++! It must either convert the null-terminated C-strings, e.g. "I love", to `string`s, or it must use an overloaded `+` operator that works with strings and C-strings.
+
+
+## MEMBER FUNCTION `length`
+- the `string` class member function `length` returns the number of characters in the `string` object:
+    - **example**:
+    ```cpp
+    int n = string_var.length();
+    ```
+
+## `string` PROCESSING
+- the string class allows the same operations we used with C-strings... and more
+    - characters in a string object can be accessed as if they are in an array.
+        - `last_name[i]` provides access to a single character as in an array
+        - index value are **not** checked for validity!
+
+
+## MEMBER FUNCTION `at`
+- `at` is an alternative to using `[]`'s to access characters in a string.
+    - `at` checks for valid index values.
+    - **example**:
+    ```cpp
+    string str("Mary");
+    ```
+    - **example#02**:
+    ```cpp
+    cout << str[6] << endl;
+    ```
+    is equivalent to
+    ```cpp
+    cout << str.at(6) << endl;
+    ```
+    - **example#03**:
+    ```cpp
+    str[2] = 'X';
+    ```
+    is equivalent to
+    ```cpp
+    str.at(2) = 'X';
+    ```
+
+
+## MEMBER FUNCTIONS OF THE STANDARD CLASS `string`
+- #### CONSTRUCTORS
+| 1   | 2   |
+|-----|-----|
+| 0:2 | 1:2 |
+| 0:3 | 1:3 |
+| 0:4 | 1:4 |
+
+
+
+
+
+
+
+
 
